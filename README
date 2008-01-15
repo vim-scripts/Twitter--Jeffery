@@ -1,0 +1,9 @@
+This is a mirror of http://www.vim.org/scripts/script.php?script_id=2124
+
+This is a very simple Vim Script that allows you to post to Twitter straight from Vim.
+
+Usage: Do the command :PosttoTwitter it will ask you for your Twitter in the command-line, type it in and hit enter to send it off. Or in a buffer; type the text you want to Twitter and in normal mode do :BPosttoTwitter to try and send the whole buffer, or :CPosttoTwitter to send the current line, or T to send the visualized text. 
+
+For anyone who wants to follow me: http://twitter.com/travisjeffery
+
+Get the new and improved version by Po Shan Cheah at http://www.vim.org/scripts/script.php?script_id=2204 in the future.
