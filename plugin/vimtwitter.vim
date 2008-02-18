@@ -15,7 +15,7 @@ if strlen(s:tweet) > 140
 elseif strlen(s:tweet) < 140
 
     call system("curl -u USER:PASS -d status=\"" . s:tweet . "\" http://twitter.com/statuses/update.xml")
-    echo "The Tweet successfully sent."
+    echo "The Tweet successfully sent. You used" strlen(s:tweet) "characters."
 
 endif
 endfunction
