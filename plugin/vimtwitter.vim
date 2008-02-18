@@ -8,11 +8,16 @@ function s:Twitter()
 
 let s:tweet = getline('.')
 
- call system("curl -u USER:PASS -d status=\"" . s:tweet . "\" http://twitter.com/statuses/update.xml")
+if strlen(s:tweet) > 140
 
- echo "Tweet successfully sent."
+    echo "Your Tweet is too long and was not sent. It has" strlen(s:tweet) - 140 "too many characters."
 
+elseif strlen(s:tweet) < 140
+
+    call system("curl -u USER:PASS -d status=\"" . s:tweet . "\" http://twitter.com/statuses/update.xml")
+    echo "The Tweet successfully sent."
+
+endif
 endfunction
 
 command! PosttoTwitter :call <SID>Twitter()
-
