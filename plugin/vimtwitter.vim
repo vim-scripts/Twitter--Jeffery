@@ -5,7 +5,8 @@
 " Last Change: 19 February 2008
 
 function s:Twitter()
-    
+
+    %s/"/\\"/ge
     let lines = getline(1, "$")
     let s:tweet = join(lines)
     
