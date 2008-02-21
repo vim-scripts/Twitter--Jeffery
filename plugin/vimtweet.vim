@@ -2,7 +2,7 @@
 " Language: Vim Script
 " Maintainer: Travis Jeffery
 " Created: 14 January 2008
-" Last Change: 19 February 2008
+" Last Change: 21 February 2008
 
 function s:Twitter()
 
@@ -16,8 +16,8 @@ function s:Twitter()
     
     elseif strlen(s:tweet) <= 140
     
-        call system("curl -u travisjeffery:n1c3guy -d status=\"" . s:tweet . "\" http://twitter.com/statuses/update.xml")
-        echo "The Tweet successfully sent. You used" strlen(s:tweet) "characters."
+        call system("curl -u USER:PASS -d status=\"" . s:tweet . "\" http://twitter.com/statuses/update.xml")
+        echo "The Tweet was successfully sent. You used" strlen(s:tweet) "characters."
     
     endif
 endfunction
