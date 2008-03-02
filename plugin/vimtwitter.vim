@@ -4,7 +4,7 @@
 " Created: 14 January 2008
 " Last Change: 24 February 2008
 
-function s:Twitter()
+function! s:Twitter()
 
     %s/"/\\"/ge                 " to replace quotes with \" so that Twitter will get them
     let lines = getline(1, "$") " get the entire buffer
@@ -16,13 +16,13 @@ function s:Twitter()
     
     elseif strlen(s:tweet) <= 140
     
-        call system("curl -u USER:PASS -d status=\"" . s:tweet . "\" http://twitter.com/statuses/update.xml")
+        call system("curl -u USER:PASS -d status=\"" . s:tweet . "\" http://twitter.com/statuses/update.xml?source=vim")
         echo "The Tweet successfully sent. You used" strlen(s:tweet) "characters."
     
     endif
 endfunction
 
-function s:CurrentLine_Twitter()
+function! s:CurrentLine_Twitter()
 
 let s:currentline = getline('.')
 
@@ -32,7 +32,7 @@ let s:currentline = getline('.')
     
     elseif strlen(s:currentline) <= 140
     
-        call system("curl -u USER:PASS -d status=\"" . s:currentline . "\" http://twitter.com/statuses/update.xml")
+        call system("curl -u USER:PASS -d status=\"" . s:currentline . "\" http://twitter.com/statuses/update.xml?source=vim")
         echo "The Tweet successfully sent. You used" strlen(s:currentline) "characters."
     
     endif
