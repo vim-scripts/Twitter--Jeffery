@@ -2,13 +2,14 @@
 " Language: Vim Script
 " Maintainer: Travis Jeffery <eatsleepgolf@gmail.com>
 " Created: 14 January 2008
-" Last Change: 3 March 2008
+" Last Change: 26 Mar 2008
 " GetLatestVimScripts: 2124 1 [:AutoInstall:] vimtwitter.vim 
 " ==============================================================
 
 function! s:Twitter()
 
     %s/"/\\"/ge                 " to replace quotes with \" so that Twitter will get them
+    %s/&/\\&/ge                 " to replace ampersand characters
     let lines = getline(1, "$") " get the entire buffer
     let s:tweet = join(lines)   " put the lines together so that it's a string and not a list
     
@@ -60,4 +61,4 @@ endfunction
 command! PosttoTwitter :call <SID>CmdLine_Twitter()
 command! CPosttoTwitter :call <SID>CurrentLine_Twitter()
 command! BPosttoTwitter :call <SID>Twitter()
-vmap T y:tabnew<CR>p:PosttoTwitter<CR>:tabclose<CR>
+vmap T y:tabnew<CR>p:BPosttoTwitter<CR>:tabclose<CR>
